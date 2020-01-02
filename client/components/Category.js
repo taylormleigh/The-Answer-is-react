@@ -5,7 +5,7 @@ const Category = props => {
   return (
     <div className={'category'} data-testid="category">
       {/* display category */}
-      {/* display clues for each category */}
+      <div key={props.key}>{props.title}</div>
     </div>
   );
 };

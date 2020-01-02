@@ -14,9 +14,22 @@ export default class Response extends Component {
   }
   submitResponse(event) {
     // this function should fire when the user fills the response and hits 'enter'
-      // Is the user response correct? 
-      // yes/no? What should happen?
+    if (event.key === 'Enter') {
+      
+      this.recordResponse( event.target.value );
+      //compare this.state.userResponse to answer, if it's correct
+      console.log(id);
+      if (this.props.categories[id].clues.answer === this.state.userResponse) {
+        // raise score
+        this.props.score += this.props.categories.clues.value;
+      //if not
+      } else {
+        //lower score
+        this.props.score -= this.props.categories.clues.value;
+      }
+    }
   }
+
   render(){
     return (
       <div id={'response'} data-testid="response">
@@ -25,6 +38,7 @@ export default class Response extends Component {
           placeholder='Answers go here!'
           // handle data change
           // handle when 'enter' is hit
+          onKeyPress={this.submitResponse.bind(this)}
         >
         </input>
       </div>

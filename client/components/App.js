@@ -25,7 +25,6 @@ export default class App extends Component {
   render() {
     return (
       <div id={'app'}>
-        What is Reactor 2?
         <Gameboard 
           results={this.state.results} 
           currentQuestion={this.state.currentQuestion} 

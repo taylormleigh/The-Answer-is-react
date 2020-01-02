@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Category from './Category.js';
 
 const Categories = props => {
-  console.log(props.categories)
   return (
     <div id={'categories'} data-testid="categoryList">
-      {/* display all the categories */}
-      {
-        props.categories.map( (category) => {
-          return (
-            <div key={category.id}>{category.title}</div>
-          );
-        })
-      }
+      {props.categories.map( (category) => {
+        return (
+          <Category 
+            key={category.id} 
+            id={category.id} 
+            title={category.title} 
+            category={category}/>
+        );
+      })}
     </div>
   );
 };

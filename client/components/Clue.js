@@ -1,11 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Category from './Category.js';
 
 const Clue = props => {
-  // show $ value of clue OR
-  // the Clue question itself OR
-  // empty screen if it was already answered
-  return 'hi';
+  var clicked = false;
+
+  function handleClick() {
+    console.log(props.clue)
+    clicked = true;
+  }
+  //if not clicked show value
+  if (!props.clicked) {
+    return <div className="clueValue" onClick={handleClick}>{props.value}</div>;
+  } else if (props.clicked) {
+    //when clicked, show clue question
+    return <div>{props.clue}</div>
+  } else {
+  //when answered empty screen
+    return <div></div>
+  }
 };
 
 Clue.propTypes = {

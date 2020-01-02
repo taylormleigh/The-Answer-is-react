@@ -11,7 +11,8 @@ const Gameboard = props => {
       {/* was a question clicked?  */}
       {/* Yes? Show clue */}
       {/* No? Show Categories */}
-      <Categories categories={props.categories} />
+      <Categories 
+        categories={props.categories} />
     </div>
   );
 };

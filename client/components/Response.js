@@ -18,8 +18,8 @@ export default class Response extends Component {
       
       this.recordResponse( event.target.value );
       //compare this.state.userResponse to answer, if it's correct
-      console.log(id);
-      if (this.props.categories[id].clues.answer === this.state.userResponse) {
+      console.log(category.id);
+      if (event.target.answer === this.state.userResponse) {
         // raise score
         this.props.score += this.props.categories.clues.value;
       //if not
@@ -32,7 +32,7 @@ export default class Response extends Component {
 
   render(){
     return (
-      <div id={'response'} data-testid="response">
+      <div id='response' data-testid="response">
         <input
           type='text'
           placeholder='Answers go here!'

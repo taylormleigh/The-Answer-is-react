@@ -1,11 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Clue from './Clue.js';
+
 
 const Category = props => {
+
+
   return (
-    <div className={'category'} data-testid="category">
+    <div className='category' data-testid="category">
       {/* display category */}
-      <div key={props.key}>{props.title}</div>
+      <div className='categoryTitle' key={props.id} id={props.id}>{props.title}</div>
+      {/* display clues for each category */}
+      {props.category.clues.map( (question) => {
+        return (
+          <Clue 
+          key={question.id} 
+          id={question.id}
+          clue={question.question} 
+          answer={question.answer} 
+          value={question.value}/>
+        );
+      })}
     </div>
   );
 };
